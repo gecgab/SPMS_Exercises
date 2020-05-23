@@ -25,4 +25,61 @@ TODO: rename to .txt
 
 	- was not able to disconnect phone (maybe due to vm configuration?)
 	- but `wireshark(deauth_frame)` classiefies packet correctly as "IEEE 802.11 Deauthentication" 
+	
 
+ ## task4-solution:
+ -a 
+ 	- there is no handshake captured so we can't crack the pw.
+	
+ -b
+ 	-
+	
+ -c
+ 	-
+	
+	
+ ## task5-solution:
+ -a 
+ 	- having captured an handshake, ist possible to get the password by using a dictionary with the password in it.
+	- found key: `Induction`
+	
+ -b
+ 	- command: `- aircrack-ng -w  wordlist.txt wpa2-handshake.pcap`
+	-      `#  BSSID              ESSID                     Encryption
+
+   		1  00:0C:41:82:B2:55  Coherer                   WPA (1 handshake, with PMKID)
+   		2  65:78:F7:B7:30:84                            Unknown
+   		3  65:78:F7:B7:60:A9                            Unknown
+   		4  81:F8:47:33:56:BB                            Unknown
+   		5  92:F3:65:74:D2:DB                            Unknown
+   		6  98:D3:04:64:FA:55                            WPA (0 handshake)
+   		7  F4:9F:8F:EA:7B:E6                            Unknown
+   		8  FF:FF:FF:FF:FF:3F                            WEP (1 IVs)`
+
+	- select target `#1` with captured handshake and run the attack:
+	
+	- output:      `[00:02:09] 3545201/3545298 keys tested (27800.50 k/s) 
+
+      Time left: 0 seconds                                     100.00%
+
+                           KEY FOUND! [ Induction ]
+
+
+      Master Key     : 85 D8 68 B2 7A A9 42 93 07 EA B5 CA C0 55 B9 D8 
+                       09 BE A6 0D E4 C7 0D 94 CD 2B D0 E2 46 87 3E 04 
+
+      Transient Key  : 8F 7F 07 90 A1 8D 75 67 45 ED 23 13 C3 63 5C 4D 
+                       80 36 6F 46 94 C1 21 87 C5 C9 6C D9 C1 7B F4 76 
+                       2F 58 2D 32 41 47 70 4C 93 E6 3F AB D9 CC E2 A2 
+                       A1 92 83 D1 07 88 62 44 82 5A D6 48 AD 24 FF B3 
+
+      EAPOL HMAC     : 44 B9 F6 30 2A 9B AB 15 53 EB A7 E8 8D 5D 0C 1A `
+
+	
+ -c
+ 	- GTK: ee22041a83853263474c38811352282071c122359b7c35a7e7d034f3cd6ac565
+	- KCK: b1cd792716762903f723424cd7d16511
+	- KEK: 82a644133bfa4e0b75d96d2308358433
+	- TK:  PTK is needed fpr calulating the TK!
+	- PMK: A288FCF0CAAACDA9A9F58633FF35E8992A01D9C10BA5E02EFDF8CB5D730CE7BC
+	
