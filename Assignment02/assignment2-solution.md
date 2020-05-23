@@ -44,8 +44,9 @@ TODO: rename to .txt
 	- found key: `Induction`
 	
  -b
- 	- command: `- aircrack-ng -w  wordlist.txt wpa2-handshake.pcap`
-	-      `#  BSSID              ESSID                     Encryption
+ 	- command: - aircrack-ng -w  wordlist.txt wpa2-handshake.pcap
+	
+	-	#  BSSID              ESSID                     Encryption
 
    		1  00:0C:41:82:B2:55  Coherer                   WPA (1 handshake, with PMKID)
    		2  65:78:F7:B7:30:84                            Unknown
@@ -54,11 +55,12 @@ TODO: rename to .txt
    		5  92:F3:65:74:D2:DB                            Unknown
    		6  98:D3:04:64:FA:55                            WPA (0 handshake)
    		7  F4:9F:8F:EA:7B:E6                            Unknown
-   		8  FF:FF:FF:FF:FF:3F                            WEP (1 IVs)`
+   		8  FF:FF:FF:FF:FF:3F                            WEP (1 IVs)
+		
 
 	- select target `#1` with captured handshake and run the attack:
-	
-	- output:      `[00:02:09] 3545201/3545298 keys tested (27800.50 k/s) 
+
+ - output:      [00:02:09] 3545201/3545298 keys tested (27800.50 k/s) 
 
       Time left: 0 seconds                                     100.00%
 
@@ -77,9 +79,14 @@ TODO: rename to .txt
 
 	
  -c
- 	- GTK: ee22041a83853263474c38811352282071c122359b7c35a7e7d034f3cd6ac565
+ 	
+	- GTK: ee22041a83853263474c38811352282071c122359b7c35a7e7d034f3cd6ac565
+	
 	- KCK: b1cd792716762903f723424cd7d16511
+	
 	- KEK: 82a644133bfa4e0b75d96d2308358433
+	
 	- TK:  PTK is needed fpr calulating the TK!
+	
 	- PMK: A288FCF0CAAACDA9A9F58633FF35E8992A01D9C10BA5E02EFDF8CB5D730CE7BC
 	
