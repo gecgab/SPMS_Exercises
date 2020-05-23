@@ -28,13 +28,13 @@ TODO: rename to .txt
 	
 
  ## task4-solution:
- -a 
+ a 
  	- there is no handshake captured so we can't crack the pw.
 	
- -b
+ b
  	-
 	
- -c
+ c
  	-
 	
 	
@@ -62,23 +62,23 @@ TODO: rename to .txt
 
  - output:      [00:02:09] 3545201/3545298 keys tested (27800.50 k/s) 
 
-      Time left: 0 seconds                                     100.00%
+      	Time left: 0 seconds                                     100.00%
 
                            KEY FOUND! [ Induction ]
 
 
-      Master Key     : 85 D8 68 B2 7A A9 42 93 07 EA B5 CA C0 55 B9 D8 
+      	Master Key     : 85 D8 68 B2 7A A9 42 93 07 EA B5 CA C0 55 B9 D8 
                        09 BE A6 0D E4 C7 0D 94 CD 2B D0 E2 46 87 3E 04 
 
-      Transient Key  : 8F 7F 07 90 A1 8D 75 67 45 ED 23 13 C3 63 5C 4D 
+      	Transient Key  : 8F 7F 07 90 A1 8D 75 67 45 ED 23 13 C3 63 5C 4D 
                        80 36 6F 46 94 C1 21 87 C5 C9 6C D9 C1 7B F4 76 
                        2F 58 2D 32 41 47 70 4C 93 E6 3F AB D9 CC E2 A2 
                        A1 92 83 D1 07 88 62 44 82 5A D6 48 AD 24 FF B3 
 
-      EAPOL HMAC     : 44 B9 F6 30 2A 9B AB 15 53 EB A7 E8 8D 5D 0C 1A `
+      	EAPOL HMAC     : 44 B9 F6 30 2A 9B AB 15 53 EB A7 E8 8D 5D 0C 1A `
 
 	
- -c
+ c
  	
 	- GTK: ee22041a83853263474c38811352282071c122359b7c35a7e7d034f3cd6ac565
 	
@@ -86,7 +86,7 @@ TODO: rename to .txt
 	
 	- KEK: 82a644133bfa4e0b75d96d2308358433
 	
-	- TK:  PTK is needed fpr calulating the TK!
+	- TK:  PTK is needed for calulating the TK!
 	
 	- PMK: A288FCF0CAAACDA9A9F58633FF35E8992A01D9C10BA5E02EFDF8CB5D730CE7BC
 	
