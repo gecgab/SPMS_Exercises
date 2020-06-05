@@ -1,11 +1,51 @@
 ## task1
 Briefly, explain how Ubertooth is able to follow an already established BTLE connection in the passive mode.
 
+
+
 ## task2
 Briefly, explain how crackle is able to obtain the TK, and correspondingly the LTK of a BTLE connection.
+The temporary key (TK) is a short key (6 digit pin) which is quickly brute forced by crackle. In the case of "Just Works" it is even set to 000000. This TK is then used to encrypt the LTK which is exchanged subsequently and which encrypts the session.
 
 ## task3
-Obtaining TK and LTK was not successful ()
+Obtaining TK and LTK was not successful.
 1. According to crackle the input file must contain a complete pairing conversation. This is due to the fact that during pairing the actual key (LTK) is distributed. Since this exchange does not seem to be captured, crackle is not able to decrypt the file.
 
-2.
+2. # crackle -i task3.pcap -o task3-decrypted.pcap
+No connect packet found
+No pairing request found
+No pairing response found
+Not enough confirm values found (1, need 2)
+Not enough random values found (1, need 2)
+No LL_ENC_REQ found
+Giving up due to 6 errors
+
+## task4
+Obtaining TK and LTK was successful.
+1. The complete pairing exchange seems to have been captured in task4.pcap. Thus crackle is able to obtain the TK (which was 0 in this case - so "just works" mode).
+2. # crackle -i task4.pcap -o task4-decrypted.pcap
+
+
+!!!
+TK found: 000000
+ding ding ding, using a TK of 0! Just Cracks(tm)
+!!!
+
+Warning: packet is too short to be encrypted (1), skipping
+LTK found: 7f62c053f104a5bbe68b1d896a2ed49c
+Done, processed 712 total packets, decrypted 3
+
+## task5
+- CRCInit: 0xaf9a9394 (found in frame 516: CONNECT_REQ)
+- Mconfirm/Sconfirm: febb983ed78020e13d685bc8418d2c5d (frame 569) / 78ef8bcb87b505a17071a8b08df8cb29 (frame 572)
+	- unclear which is Mconfirm/Sconfirm as source and destination addresses read: Unknown_0xaf9a9394
+- Mrand/Srand: abb692ebfd4601f4aad3aea40f7da5fc (frame 573) / 7daa0be24006543081ffe863268e5ad8 (frame 576)
+	- unclear which is Mrand/Srand as source and destination addresses read: Unknown_0xaf9a9394
+- access address in frame 500: 0x8e89bed6 (Broadcast)
+- only for CRC Init it is required to have decrypted packets. All other values are not encrypted.
+
+the frame numbering in the exercise seems to be off by one, i.e. frame number 585 in the exercise corresponds to frame 584 in the pcap file. At least for the decrypted .pcap file frames 585 and 589 are empty.
+- opcode frame 584: LL_START_ENC_RSP (0x06)
+- opcode frame 588: 0x06 (Encryption Information)
+- There is a difference between encrypted and decrypted frames since at this point the connection has been established and all packets are encrypted.
+
