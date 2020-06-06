@@ -1,0 +1,11 @@
+## task1
+Briefly, explain how Ubertooth is able to follow an already established BTLE connection in the passive mode.
+
+## task2
+Briefly, explain how crackle is able to obtain the TK, and correspondingly the LTK of a BTLE connection.
+
+## task3
+Obtaining TK and LTK was not successful ()
+1. According to crackle the input file must contain a complete pairing conversation. This is due to the fact that during pairing the actual key (LTK) is distributed. Since this exchange does not seem to be captured, crackle is not able to decrypt the file.
+
+2.
