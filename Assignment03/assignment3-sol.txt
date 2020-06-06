@@ -1,5 +1,8 @@
 ## task1
 Briefly, explain how Ubertooth is able to follow an already established BTLE connection in the passive mode.
+(Not quite sure if this is correct!)
+Ubertooth uses Lower Address Part (LAP) Sniffing. ( The LAP consists of the lower 24 bits of the BD_ADDR and is the only part of the address that is transmitted with every packet )
+So Ubertooth captures the LAP from each packet transmitted on a channel and is able to follow the traffic sent.
 
 
 
