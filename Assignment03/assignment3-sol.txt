@@ -6,6 +6,7 @@ Briefly, explain how Ubertooth is able to follow an already established BTLE con
 ## task2
 Briefly, explain how crackle is able to obtain the TK, and correspondingly the LTK of a BTLE connection.
 The temporary key (TK) is a short key (6 digit pin) which is quickly brute forced by crackle. In the case of "Just Works" it is even set to 000000. This TK is then used to encrypt the LTK which is exchanged subsequently and which encrypts the session.
+source: https://lacklustre.net/projects/crackle/
 
 ## task3
 Obtaining TK and LTK was not successful.
@@ -36,6 +37,8 @@ LTK found: 7f62c053f104a5bbe68b1d896a2ed49c
 Done, processed 712 total packets, decrypted 3
 
 ## task5
+source for setting up wireshark: https://github.com/greatscottgadgets/ubertooth/wiki/Capturing-BLE-in-Wireshark
+
 - CRCInit: 0xaf9a9394 (found in frame 516: CONNECT_REQ)
 - Mconfirm/Sconfirm: febb983ed78020e13d685bc8418d2c5d (frame 569) / 78ef8bcb87b505a17071a8b08df8cb29 (frame 572)
 	- unclear which is Mconfirm/Sconfirm as source and destination addresses read: Unknown_0xaf9a9394
