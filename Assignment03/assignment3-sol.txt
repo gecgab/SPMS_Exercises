@@ -6,7 +6,6 @@ Full packet decoding is only possible when the packet's Upper Address Part (UAP)
 
 
 ## task2
-Briefly, explain how crackle is able to obtain the TK, and correspondingly the LTK of a BTLE connection.
 The temporary key (TK) is a short key (6 digit pin) which is quickly brute forced by crackle.
 In the case of "Just Works" it is even set to 000000. This TK is then used to generate the further keys (including the LTK).
 The LTK is then used to encrypt all communications between the master and the slave.
