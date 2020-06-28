@@ -1,0 +1,35 @@
+########### TASK 1 ###########
+
+(Source: Practical Attacks on the MIFARE Classic by Wee Hon Tan, September 2009)
+
+1. Low Entropy of Random Generator
+There is a huge issue with the (pseudo-)random number generator of the MiFare Classic Cards. MiFare Classic only uses 16 bit for random numbers.
+This results in a total of 65536 different numbers which is very bad since it is possible to generate all possible numbers in less than one second with the internal LFSR.
+Even worse: the generator will reset to a know state every time the tag starts operating.
+
+2. Only Odd State Bits Used to Generate Keystream (weakness of cryptographic cipher)
+Only the 20 odd-numbered bits (9,11,...,47) are used as inputs for the filter function. The odd bits (9,11,...47) are used to generate a keystream bit.
+After two shifts to the LFSR, the 19 original bits in position 11-47 as well as the bit in position 49 (recently added) become the new 20-bit input to the filter function.
+Those bits are used to generate the next keystream bit.
+Knowing the value of two consecutive keystream bits allows an adversary to narrow down the possibilities for the 21 bits (9,11,...,49) by eliminating those that don't generathe the correct keystream bits.
+
+3. Doploying Product with Default Keys
+Chip manufacturers ship their chips with default keys. These default keys are well documented and also often well known.
+
+
+########### TASK 2 ###########
+
+https://www.blackhat.com/docs/sp-14/materials/arsenal/sp-14-Almeida-Hacking-MIFARE-Classic-Cards-Slides.pdf
+
+1.Authenticate to the block with default key and read tag's Nt (determined by LFSR)
+2.Authenticate to the same block with default key and read tag's Nt' (determined by LFSR) (this authentication is in an encrypted session)
+3.Compute “timing distance” (number of LFSR shifts)
+4.Guess the Nt value and authenticate to the different block
+
+As soon as an attacker knows one key of a single sectore, the attacker is able to recover more keys.
+
+
+########### TASK 3 ###########
+
+Timing is crucial to perform a seccessful attack on MiFare Cards because timing information between authentication attempts leak additional information which allows an attacker to predict what the challenge nonce will be.
+The distance between the tag nonces used in consecutive authentication attempts strongly depends on the time between those attempts.
